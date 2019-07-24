@@ -152,11 +152,14 @@
         <div class="col-12 bg-gry">
             <div class="boxx1">
                 <h4>{{ question.question_text }}</h4>
+
                 <div class="boxx2">
-                    <form class="boxx3" action="{% url 'polls:vote' question.id %}" method="post">
+                    <form action="{% url 'polls:vote' question.id %}" method="post">
                         {% csrf_token %}
 
                         {% for choice in question.choice_set.all %}
+
+                         <div class="boxx3" style="display:inline-block">
 
                         <input type="radio" name="choice" id="choice {{ forloop.counter }}" value="{{ choice.id }}" align="absmiddle" class="imgg">
                         <label for="choice1">{{ choice.choice_text }}</label>
@@ -164,12 +167,13 @@
 {#                            {{ choice.choice_text }}#}
 {#                        </p>#}
 
-
+                         </div>
                         {% endfor %}
 
                     <input type="submit" value="Vote">
 
                     </form>
+                </div>
 {#                    <form class="boxx3" action="{% url 'polls:vote' question.id %}" method="post">#}
 {##}
 {#                        {% csrf_token %}#}

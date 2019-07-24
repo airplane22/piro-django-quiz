@@ -11,6 +11,11 @@ from django.urls import reverse
 from .models import Question, Choice
 
 
+
+def user(request):
+
+    return HttpResponseRedirect(reverse('polls:detail', args=(1,)))
+
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     template = loader.get_template('polls/index.html')

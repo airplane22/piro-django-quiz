@@ -5,8 +5,12 @@ from django.db import models
 
 from django.db import models
 
+class Users(models.Model):
+    username = models.CharField(max_length=30)
+    zcode = models.CharField(max_length=30)
 
 class Question(models.Model):
+    userinfo = models.ForeignKey(Users, on_delete=models.CASCADE, null=True)
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
