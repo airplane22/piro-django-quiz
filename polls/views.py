@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 
-
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader
 from django.urls import reverse
@@ -11,10 +10,9 @@ from django.urls import reverse
 from .models import Question, Choice
 
 
-
 def user(request):
-
     return HttpResponseRedirect(reverse('polls:detail', args=(1,)))
+
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
@@ -23,7 +21,6 @@ def index(request):
         'latest_question_list': latest_question_list,
     }
     return HttpResponse(template.render(context, request))
-
 
 
 # def detail(request, question_id):
@@ -49,8 +46,10 @@ def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
+
 def lastpage(request):
     return render(request, 'polls/lastpage.html')
+
 
 # def vote(request, question_id):
 #     return HttpResponse("You're voting on question %s." % question_id)
@@ -69,20 +68,17 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        question.id += 1 #추가
-
+        question.id += 1  # 추가
 
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-#        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+    #        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
     if question.id <= 10:
         return HttpResponseRedirect(reverse('polls:detail', args=(question.id,)))
 
-    else :
+    else:
         return HttpResponseRedirect(reverse('polls:lastpage'))
-
-
 
 
 def index(request):
@@ -90,3 +86,10 @@ def index(request):
     output = ', '.join([q.question_text for q in latest_question_list])
     return HttpResponse(output)
 
+
+def login(request):
+    return render(request, 'polls/login.html')
+
+
+def quiz(request):
+    return render(request, 'polls/detail.html')

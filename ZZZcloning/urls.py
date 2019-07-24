@@ -18,19 +18,22 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
 
-
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
 #     path('quiz/', include('quiz.urls')),
 #     #path('login/', include('login.urls')),
 #
 # ]
-
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
+
+from django.conf import settings
+from django.conf.urls import url
+from django.shortcuts import redirect
 
 urlpatterns = [
-    path('polls/', include(('polls.urls','polls'), namespace='polls')),
+    url('^$', lambda r: redirect('polls:login_screen')),
+    path('polls/', include(('polls.urls', 'polls'), namespace='polls')),
     path('admin/', admin.site.urls),
 
 ]

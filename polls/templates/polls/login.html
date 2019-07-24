@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>우정테스트 만들기</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <style>
+        .bg-light {
+            height: 900px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        input {
+            text-align: right;
+        }
+
+        .dwn1 {
+            margin: 0 auto;
+            width: 340px;
+        }
+
+        .dwn1a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dwn1b {
+            width: 105px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .dwn1a img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .dwn2b {
+            text-align: center;
+            color: black;
+            font-size: 0.9em;
+            font-weight: bold;
+            line-height: 40px;
+            border: solid 3px black;
+        }
+
+        .dwn2a a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 mx-auto bg-secondary">
+            <h2>ZZZ Quiz</h2>
+            <div class="bg-light">
+                <h1>우정 테스트</h1>
+                <form action="http://127.0.0.1:8000/polls/1/" method="get">
+                    <div class="form-group row mx-auto">
+                        <label class="col-sm-4 col-form-label">
+                            이름
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="이름을 입력하세요">
+                        </div>
+                    </div>
+                    <div class="form-group row mx-auto">
+                        <label class="col-sm-4 col-form-label">
+                            제페토코드
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="zzzzzz">
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success btn-lg btn-block">
+                        시작하기
+                    </button>
+                </form>
+                <div class="dwn1">
+                    <div class="dwn1a">
+                        <div class="dwn1b">
+                            제페토를<br>다운로드하세요
+                        </div>
+                        <img src="https://static.zzz.studio/static/appiconsml%403x.png" alt="" class="app_icon">
+                    </div>
+                    <div class="dwn2a">
+                        <a href="https://zepeto.onelink.me/Npl9/dafa524e">
+                            <div class="dwn2b">
+                                Download ZEPETO
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
