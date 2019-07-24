@@ -1,0 +1,192 @@
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{#<form action="{% url 'polls:vote' question.id %}" method="post">#}
+{#{% csrf_token %}#}
+{#{% for choice in question.choice_set.all %}#}
+{#    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">#}
+{#    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>#}
+{#{% endfor %}#}
+{#<input type="submit" value="Vote">#}
+
+{#</form>#}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>우정테스트 만들기</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <style>
+        .container-fluid {
+            width: 454px;
+            padding: 0;
+            margin-top: 45px;
+        }
+
+        #headd1 {
+            padding: 0;
+            background-color: lightgray;
+        }
+
+        .row {
+            width: 454px;
+            margin: 0 auto;
+        }
+
+        #controller {
+            margin: 0;
+            padding: 15px 0 15px 15px;
+            width: 45.4px; /*이걸로 보라색 상자의 길이를 조절*/
+            height: 54px;
+            background-color: #9370DB;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .bg-gry {
+            background-color: lightgray;
+            height: 900px;
+        }
+
+        .numbb {
+            background-color: purple;
+        }
+
+        .boxx1 {
+            width: 412px;
+            margin: 0 auto;
+        }
+
+        .boxx2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .boxx3 {
+            width: 200px;
+            /*   height: 321px;*/
+            /*   margin: 0 10px;*/
+            background-color: white;
+            text-align: center;
+        }
+
+        .boxx3 p {
+            margin: 16px 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .imgg {
+            width: 100%;
+            height: 267px;
+            background-color: white;
+        }
+
+        h4 {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        input {
+            text-align: right;
+        }
+
+        .dwn1 {
+            margin: 0 auto;
+            width: 340px;
+        }
+
+        .dwn1a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dwn1b {
+            width: 105px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .dwn1a img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .dwn2b {
+            text-align: center;
+            color: black;
+            font-size: 0.9em;
+            font-weight: bold;
+            line-height: 40px;
+            border: solid 3px black;
+        }
+
+        .dwn2a a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" id="headd1">
+            <div id="controller">
+                {{ question.id }}/10
+            </div>
+        </div>
+        <div class="col-12 bg-gry">
+            <div class="boxx1">
+                <h4>{{ question.question_text }}</h4>
+                <div class="boxx2">
+                    <form class="boxx3" action="{% url 'polls:vote' question.id %}" method="post">
+                        {% csrf_token %}
+
+                        {% for choice in question.choice_set.all %}
+
+                        <input type="radio" name="choice" id="choice {{ forloop.counter }}" value="{{ choice.id }}" align="absmiddle" class="imgg">
+                        <label for="choice1">{{ choice.choice_text }}</label>
+{#                        <p>#}
+{#                            {{ choice.choice_text }}#}
+{#                        </p>#}
+
+
+                        {% endfor %}
+
+                    <input type="submit" value="Vote">
+
+                    </form>
+{#                    <form class="boxx3" action="{% url 'polls:vote' question.id %}" method="post">#}
+{##}
+{#                        {% csrf_token %}#}
+{##}
+{#                        {% for choice in question.choice_set.all %}#}
+{##}
+{#                        <input type="image" name="choice" id="choice2" src="사진 위치" value="submit" align="absmiddle" class="imgg">#}
+{##}
+{#                        <p>#}
+{#                            {{ choice.choice_text }}#}
+{#                        </p>#}
+{##}
+{#                        {% endfor %}#}
+{#                    </form>#}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
