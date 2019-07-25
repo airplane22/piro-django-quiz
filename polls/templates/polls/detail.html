@@ -47,7 +47,7 @@
         #controller {
             margin: 0;
             padding: 15px 0 15px 15px;
-            width: 45.4px; /*이걸로 보라색 상자의 길이를 조절*/
+            width: 0px; /*이걸로 보라색 상자의 길이를 조절*/
             height: 54px;
             background-color: #9370DB;
             font-weight: bold;
@@ -137,9 +137,17 @@
         .dwn2a a {
             text-decoration: none;
         }
-
-
     </style>
+    <script type="text/javascript">
+        var a = "{{ question.id }}";
+        function resize(int){
+            var ctrl = document.getElementById('controller');
+            ctrl.style.width = 45.4*int+'px';
+        }
+        window.onload = function(){
+            resize(a);
+        }
+    </script>
 </head>
 <body>
 <div class="container-fluid">
